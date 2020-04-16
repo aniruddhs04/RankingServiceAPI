@@ -21,11 +21,4 @@ public class ESConfiguration {
         );
         return factory.getObject();
     }
-
-// For REST High Level Client
-//        public RestHighLevelClient getESClient() {
-//        RestHighLevelClient client = new RestHighLevelClient(
-//                RestClient.builder(new HttpHost("localhost", 9200, "http")));
-//        return client;
-//    }
 }

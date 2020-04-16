@@ -1,5 +1,3 @@
-// RestTemplate needs to be Autowired
-
 package com.oyorooms.service.rankingservice.prediction;
 
 import com.oyorooms.service.rankingservice.ranking.RankingRequest;
@@ -12,7 +10,7 @@ import java.io.IOException;
 @RestController
 public class PredictionService {
 
-    private static final String uri = "http://localhost:5000/";
+    private static final String uri = "http://localhost:5000/predict";
 
     @Autowired
     private PredictionHandler predictionHandler;

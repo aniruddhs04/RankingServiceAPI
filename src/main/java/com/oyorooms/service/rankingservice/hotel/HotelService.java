@@ -1,8 +1,7 @@
-// Hit flask once with all hotels, then for null hit es once
-
 package com.oyorooms.service.rankingservice.hotel;
 
 import com.oyorooms.service.rankingservice.es.ESService;
+import com.oyorooms.service.rankingservice.redis.RedisRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,7 +14,7 @@ import java.util.Optional;
 public class HotelService {
 
     @Autowired
-    private HotelRepository hotelRepository;
+    private RedisRepository redisRepository;
 
     @Autowired
     private ESService esService;
@@ -24,7 +23,7 @@ public class HotelService {
         List<Hotel> hotelList = new ArrayList<>();
         List<String> hotelInES = new ArrayList<>();
         for(String hotelid : hotelids) {
-            Optional<Hotel> data = hotelRepository.findById(hotelid);
+            Optional<Hotel> data = redisRepository.findById(hotelid);
             if(data.isPresent())
                     hotelList.add(data.get());
             else

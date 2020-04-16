@@ -53,39 +53,4 @@ public class ESService {
         client.close();
         return results;
     }
-
-// Using REST High Level Client
-//        public List<Hotel> getAllHotels() throws IOException {
-//        RestHighLevelClient client = esConfiguration.getESClient();
-//        SearchRequest searchRequest = new SearchRequest("pune1");
-//        SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
-//        searchSourceBuilder.query(QueryBuilders.matchAllQuery());
-//        searchSourceBuilder.size(100);
-//        searchRequest.source(searchSourceBuilder);
-//        SearchResponse searchResponse = client.search(searchRequest);
-//        SearchHits hits = searchResponse.getHits();
-//        List<SearchHit> searchHits = Arrays.asList(hits.getHits());
-//        List<Hotel> results = new ArrayList<>();
-//        Gson gson = new Gson();
-//        searchHits.forEach(hit -> results.add(gson.fromJson(hit.getSourceAsString(), Hotel.class)));
-//        client.close();
-//        return results;
-//    }
-//
-//    public Hotel getHotel(String hotelid) throws IOException {
-//        RestHighLevelClient client = esConfiguration.getESClient();
-//        SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
-//        searchSourceBuilder.query(QueryBuilders.termQuery("hotelid",hotelid));
-//        searchSourceBuilder.size(1);
-//        SearchRequest searchRequest = new SearchRequest("pune1");
-//        searchRequest.source(searchSourceBuilder);
-//        SearchResponse searchResponse = client.search(searchRequest);
-//        SearchHits hits = searchResponse.getHits();
-//        List<SearchHit> searchHits = Arrays.asList(hits.getHits());
-//        List<Hotel> results = new ArrayList<>();
-//        Gson gson = new Gson();
-//        searchHits.forEach(hit -> results.add(gson.fromJson(hit.getSourceAsString(), Hotel.class)));
-//        client.close();
-//        return results.get(0);
-//    }
 }

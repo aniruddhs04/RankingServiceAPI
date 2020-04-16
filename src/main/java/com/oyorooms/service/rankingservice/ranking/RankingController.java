@@ -2,6 +2,7 @@ package com.oyorooms.service.rankingservice.ranking;
 
 import com.oyorooms.service.rankingservice.prediction.PredictionResponse;
 import com.oyorooms.service.rankingservice.prediction.PredictionService;
+import com.oyorooms.service.rankingservice.ranking.utils.SortComparator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,11 +18,11 @@ public class RankingController {
     private PredictionService predictionService;
 
     @Autowired
-    private SortingComparator sortingComparator;
+    private SortComparator sortComparator;
 
     @RequestMapping(value = "/rank", method = RequestMethod.POST)
     public RankingResponse getRankedHotels(@RequestBody RankingRequest rankingRequest) throws IOException {
         PredictionResponse prediction = predictionService.getPrediction(rankingRequest);
-        return sortingComparator.sortHotels(prediction);
+        return sortComparator.sortHotels(prediction);
     }
 }
